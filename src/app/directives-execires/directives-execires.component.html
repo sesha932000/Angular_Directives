@@ -7,13 +7,15 @@
 </head>
 <body>
   <div class="container">
-
-    <div class="col-md-12 message" *ngIf="chooseNum && errorMessage">
+ <div class="col-md-12" [ngClass]="{'message': true, 'message-valid-input': chooseNum !== null && errorMessage}">
+      {{ errorMessage ? 'Please enter a valid input' : 'Numbers highlighted above are divisible by ' + chooseNum }}
+    </div>
+    <!-- <div class="col-md-12 message message-valid-input" *ngIf="chooseNum && errorMessage">
       Please enter a valid input
     </div>
     <div class="col-md-12 message" *ngIf="chooseNum  && !errorMessage">
       Numbers highlighted above are divisible by {{ chooseNum }}
-    </div>
+    </div> -->
 
     
     <div class="row">

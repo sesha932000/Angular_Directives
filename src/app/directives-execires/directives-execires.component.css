@@ -57,8 +57,11 @@ p{
     text-align: center;
     padding: 10px;
 }
-.error-message {
+.message-valid-input {
     color: red;
+}
+.error-message {
+    color: green;
     font-size: 14px;
     margin-top: 10px;
   }
