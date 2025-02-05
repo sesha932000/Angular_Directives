@@ -73,7 +73,7 @@ export class DirectivesExeciresComponent {
 //   this.isCleardisable= false;
 // }
 
-chooseNum: number = 0;
+chooseNum: number | null = null;
 nums: number[] = Array.from({ length: 50 }, (_, i) => i + 1);
 isCleardisable: boolean = false;
 errorMessage: string = '';
@@ -84,11 +84,16 @@ calculate(num: number): void {
 }
 
 validateInput(): void {
-  if (this.chooseNum < 1 || this.chooseNum > 50) {
+  if (this.chooseNum === null || this.chooseNum === undefined || this.chooseNum < 1 || this.chooseNum > 50) {
     this.errorMessage = 'Please enter a number between 1 and 50.';
   } else {
     this.errorMessage = '';
   }
+}
+clearInput(): void {
+  this.chooseNum = null;
+  this.isCleardisable = false;
+  this.errorMessage = '';
 }
 
 }
