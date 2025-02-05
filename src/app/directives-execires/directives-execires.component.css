@@ -60,7 +60,7 @@ p{
    
 @media (max-width: 600px) {
     .container {
-        width: 100%;
+        width: 90%;
         padding: 10px;
     }
     .inputValue, button {
@@ -71,6 +71,39 @@ p{
     }
     .message{
         order: -1;
-      
+    }
+    .col-md-8 {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+    }
+    p {
+        margin: 0;
+        width: auto;
+        height: auto;
+        font-size: 16px;
+    }
+}
+@media (min-width: 601px) and (max-width: 1200px) {
+    .container {
+        width: 80%;
+        padding: 20px;
+    }
+    .inputValue, button {
+        width: 100%;
+        padding: 12px;
+        margin: 12px 0;
+        font-size: large;
+    }
+    .col-md-8 {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 10px;
+    }
+    p {
+        margin: 0;
+        width: auto;
+        height: auto;
+        font-size: 20px;
     }
 }
