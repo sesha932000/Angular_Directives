@@ -1,28 +1,40 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <div>
-        <input class="inputValue" type="number" [(ngModel)]="chooseNum" (ngModelChange)="calculate(chooseNum)"
-          placeholder="Try numbers...." min="0" max="20">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div>
+          <input class="inputValue" type="number" [(ngModel)]="chooseNum" (ngModelChange)="calculate(chooseNum)"
+            placeholder="Try numbers...." min="0" max="20">
+        </div>
+        <div> <button [disabled]="isCleardisable" (click)="calculate(0)">Clear</button></div>
       </div>
-      <div> <button [disabled]="isCleardisable" (click)="calculate(0)">Clear</button></div>
+      <div class="col-md-8">
+        <p *ngFor="let num of nums" 
+        [ngClass]="{
+          highlight:num % chooseNum === 0 
+        }" 
+        [ngStyle]="{'font-size': (num % chooseNum === 0 ) ? '30px' : '24px'}">
+          {{num}}
+        </p>
+      </div>
     </div>
-    <div class="col-md-8">
-      <p *ngFor="let num of nums" 
-      [ngClass]="{
-        highlight:num % chooseNum === 0 
-      }" 
-      [ngStyle]="{'font-size': (num % chooseNum === 0 ) ? '30px' : '24px'}">
-        {{num}}
-      </p>
+    <div class="row">
+      <div class="col-md-12 message" *ngIf="chooseNum > 0">
+        Numbers highlighted above are divisible by {{ chooseNum }}
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-12 message" *ngIf="chooseNum > 0">
-      Numbers highlighted above are divisible by {{ chooseNum }}
-    </div>
-  </div>
-</div>
+  
+</body>
+</html>
+
 
 
 
