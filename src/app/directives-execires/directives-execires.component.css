@@ -57,6 +57,11 @@ p{
     text-align: center;
     padding: 10px;
 }
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+  }
    
 @media (max-width: 600px) {
     .container {
@@ -106,4 +111,5 @@ p{
         height: auto;
         font-size: 20px;
     }
+
 }

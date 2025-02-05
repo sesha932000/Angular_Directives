@@ -7,16 +7,21 @@
 </head>
 <body>
   <div class="container">
-    <div class="col-md-12 message" *ngIf="chooseNum > 0">
+    <div class="col-md-12 message" *ngIf="chooseNum && errorMessage">
+      Please enter a valid input
+    </div>
+    <div class="col-md-12 message" *ngIf="chooseNum && chooseNum > 0 && !errorMessage">
       Numbers highlighted above are divisible by {{ chooseNum }}
     </div>
     <div class="row">
       <div class="col-md-4">
         <div>
-          <input class="inputValue" type="number" [(ngModel)]="chooseNum" (ngModelChange)="calculate(chooseNum)"
-            placeholder="Try numbers...." min="0" max="20">
+          <input class="inputValue" type="number" [(ngModel)]="chooseNum" (ngModelChange)="validateInput()"
+            placeholder="Try numbers...." min="0" max="50">
         </div>
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
         <div> <button [disabled]="isCleardisable" (click)="calculate(0)">Clear</button></div>
+        
       </div>
       <div class="col-md-8">
         <p *ngFor="let num of nums" 
