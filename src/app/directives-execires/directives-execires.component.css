@@ -1,6 +1,8 @@
 .container{
     margin:30px auto;
-  padding:50px;
+  padding:30px;
+  width: max-content;
+  height: min-content;
   background-color: burlywood;
 
 }
